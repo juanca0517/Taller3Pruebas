@@ -2,17 +2,20 @@ describe('Los estudiantes login', function() {
     it('Visits los estudiantes and fails at login', function() {
         cy.visit('https://losestudiantes.co')
 	cy.contains('Cerrar').click()
+	cy.screenshot()
 	cy.contains('Ingresar').click()
       	cy.get('.cajaLogIn').find('input[name="correo"]').click().type("wrongemail@example.com")
       	cy.get('.cajaLogIn').find('input[name="password"]').click().type("1234")
       	cy.get('.cajaLogIn').contains('Ingresar').click()
       	cy.contains('El correo y la contraseña que ingresaste no figuran en la base de datos. Intenta de nuevo por favor.')
+      	cy.screenshot()
 	})
 
    it('SignUp', function(){
 	cy.visit('https://losestudiantes.co')
 	cy.contains('Cerrar').click()
 	cy.contains('Ingresar').click()
+	cy.screenshot()
 	cy.get('.cajaSignUp').find('input[name="nombre"]').click().type("juan")   
 	cy.get('.cajaSignUp').find('input[name="apellido"]').click().type("cifuentes")
 	cy.get('.cajaSignUp').find('input[name="correo"]').click().type("juanca0517@gmail.com")
@@ -21,6 +24,7 @@ describe('Los estudiantes login', function() {
 	cy.get('.cajaSignUp').find('input[name="password"]').click().type("78945612")	
 	cy.get('.cajaSignUp').find('input[name="acepta"]').click()
 	cy.get('.cajaSignUp').contains('Registrarse').click()
+	cy.screenshot()
 	
 	})
    it('Login existoso', function() {
@@ -63,9 +67,11 @@ describe('Los estudiantes login', function() {
 	cy.visit('https://losestudiantes.co')
 	cy.contains('Cerrar').click()
 	cy.contains('Alfabético').click()
+	cy.screenshot()
 	cy.get('.profesores').get('.profesor').find('a[href="universidad-de-los-andes/matematicas/profesores/adolfo-jose-quiroz-salazar"]').click()	
 	cy.get('.labelHover').find('input[name="id:MATE1209"]').click()
 	cy.get('.labelHover').find('input[name="id:MATE1214C"]').click()
 	cy.get('.labelHover').find('input[name="id:MATE1214C"]').click()
+	cy.screenshot()
 })
 })
